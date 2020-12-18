@@ -51,7 +51,7 @@ open class GaugeView: UIView {
     @IBInspectable public var numOfSubDivisions: Int = 10
     
     /// The thickness of the ring.
-    @IBInspectable public var ringThickness: Double = 15
+    @IBInspectable public var ringThickness: Double = 25
     
     /// The background color of the ring.
     @IBInspectable public var ringBackgroundColor: UIColor = UIColor(white: 0.9, alpha: 1)
@@ -177,7 +177,7 @@ open class GaugeView: UIView {
                         startAngle: 0,
                         endAngle: .pi * 2,
                         clockwise: false)
-        context?.setStrokeColor(ringBackgroundColor.withAlphaComponent(0.3).cgColor)
+        context?.setStrokeColor(ringBackgroundColor.withAlphaComponent(0).cgColor)
         context?.strokePath()
         
         // Draw the ring progress background
@@ -306,7 +306,7 @@ open class GaugeView: UIView {
         progressLayer.strokeEnd = CGFloat(progress)
 
         // Set ring stroke color
-        var ringColor = UIColor(red: 76.0/255, green: 217.0/255, blue: 100.0/255, alpha: 1)
+        var ringColor = #colorLiteral(red: 0.3333333333, green: 0.6705882353, blue: 0.9215686275, alpha: 1)
         if let delegate = delegate {
             ringColor = delegate.ringStokeColor(gaugeView: self, value: value)
         }
